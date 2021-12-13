@@ -1,8 +1,11 @@
+const Utils = require('./utils')
+
+
 const teamTemplate = (data) => {
 	let html = data.map(employee => {
 		if (employee.officeNumber) {
 			return `
-				<h2>Name: ${addManager(employee.name)}</h2>
+				<h2>Name: ${(Manager.name)}</h2>
 				<p>Id: ${addManager(employee.id)}</p>
                 <p>Email: ${addManager(employee.email)}</p>
 				<p>Office Number: ${addManager(employee.officeNumber)}</p>
@@ -19,7 +22,7 @@ const teamTemplate = (data) => {
                 <h2>Name: ${addIntern(employee.name)}</h2>
                 <p>Id: ${addIntern(employee.id)}</p>
                 <p>Email: ${addIntern(employee.email)}</p>
-                <p>GitHub: ${addIntern(employee.school)}</p>
+                <p>School: ${addIntern(employee.school)}</p>
 			`
         }
 	})
