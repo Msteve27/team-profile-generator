@@ -181,7 +181,7 @@ const getTeamBuildUserInput = () => {
 				type: "list",
 				message: "What team role would you like to add?",
 				name: "choice",
-				choices: ["Add manager", "Add engineer", "Add intern", "None"],
+				choices: ["Add manager", "Add engineer", "Add intern", "Finish"],
 		})
 		.then(({choice}) => {
 			switch (choice) {

@@ -1,28 +1,29 @@
-const Utils = require('./utils')
+// const Utils = require('./utils')
+// const {addManager, addEngineer, addIntern, getTeamBuildUserInput} = require('./utils')
 
 
 const teamTemplate = (data) => {
-	let html = data.map(employee => {
+	let htmlPage = data.map(employee => {
 		if (employee.officeNumber) {
 			return `
-				<h2>Name: ${(Manager.name)}</h2>
-				<p>Id: ${addManager(employee.id)}</p>
-                <p>Email: ${addManager(employee.email)}</p>
-				<p>Office Number: ${addManager(employee.officeNumber)}</p>
+				<h1>Name: ${(employee.name)}</h1>
+				<p>Id: ${(employee.id)}</p>
+                <a href="mailto:${(employee.email)}"> <p class="text-blue-800 text-decoration-line: underline">${(employee.email)}</pclass=></a>
+				<p>Office Number: ${(employee.officeNumber)}</p>
 			`
 		} else if (employee.github) {
 			return `
-                <h2>Name: ${addEngineer(employee.name)}</h2>
-                <p>Id: ${addEngineer(employee.id)}</p>
-                <p>Email: ${addEngineer(employee.email)}</p>
-                <p>GitHub: ${addEngineer(employee.github)}</p>
+                <h2>Name: ${(employee.name)}</h2>
+                <p>Id: ${(employee.id)}</p>
+                <p>Email: ${(employee.email)}</p>
+                <p>GitHub: ${(employee.github)}</p>
 			`
 		} else if (employee.school) {
             return `
-                <h2>Name: ${addIntern(employee.name)}</h2>
-                <p>Id: ${addIntern(employee.id)}</p>
-                <p>Email: ${addIntern(employee.email)}</p>
-                <p>School: ${addIntern(employee.school)}</p>
+                <h3>Name: ${(employee.name)}</h3>
+                <p>Id: ${(employee.id)}</p>
+                <p>Email: ${(employee.email)}</p>
+                <p>School: ${(employee.school)}</p>
 			`
         }
 	})
@@ -34,12 +35,17 @@ const teamTemplate = (data) => {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 	<title>My Team</title>
-	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<header>My Team</header>
-	<h1 className="text-blue-800 text-lg">${html.join("")}</h1>
+<header class="flex-1 text-white bg-red-500 h-12 flex justify-center items-center">My Team</header>
+	<div id="team-container" class="flex-1 grid grid-cols-4">
+		<div>
+		<h1>${htmlPage.join("")}</h1>
+		</div>
+		
+	</div>
 
 
 </body>
