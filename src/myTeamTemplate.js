@@ -1,28 +1,24 @@
-// const Utils = require('./utils')
-// const {addManager, addEngineer, addIntern, getTeamBuildUserInput} = require('./utils')
-
-
 const teamTemplate = (data) => {
 	let htmlPage = data.map(employee => {
 		if (employee.officeNumber) {
 			return `
-				<h1>Name: ${(employee.name)}</h1>
+				<h1 class="mt-3">Manager's Name: ${(employee.name)}</h1>
 				<p>Id: ${(employee.id)}</p>
                 <a href="mailto:${(employee.email)}"> <p class="text-blue-800 text-decoration-line: underline">${(employee.email)}</pclass=></a>
 				<p>Office Number: ${(employee.officeNumber)}</p>
 			`
 		} else if (employee.github) {
 			return `
-                <h2>Name: ${(employee.name)}</h2>
+                <h2 class="mt-3">Engineer's Name: ${(employee.name)}</h2>
                 <p>Id: ${(employee.id)}</p>
-                <p>Email: ${(employee.email)}</p>
-                <p>GitHub: ${(employee.github)}</p>
+                <a href="mailto:${(employee.email)}"> <p class="text-blue-800 text-decoration-line: underline">${(employee.email)}</pclass=></a>
+                <a href="https://github.com/${(employee.github)}"> <p class="text-blue-800 text-decoration-line: underline">GitHub: https://github.com/${(employee.github)}</pclass=></a>
 			`
 		} else if (employee.school) {
             return `
-                <h3>Name: ${(employee.name)}</h3>
+                <h3 class="mt-3">Intern's Name: ${(employee.name)}</h3>
                 <p>Id: ${(employee.id)}</p>
-                <p>Email: ${(employee.email)}</p>
+                <a href="mailto:${(employee.email)}"> <p class="text-blue-800 text-decoration-line: underline">${(employee.email)}</pclass=></a>
                 <p>School: ${(employee.school)}</p>
 			`
         }
